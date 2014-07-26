@@ -15,13 +15,19 @@ gem 'coffee-rails', '~> 4.0.0'
 # gem 'therubyracer',  platforms: :ruby
 
 gem 'haml'
+
+gem 'sidekiq'
+gem 'sinatra', '>= 1.3.0', :require => nil
+gem 'devise', '~> 3.2.4'
+gem 'devise-async'
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
   gem "factory_girl_rails", "~> 4.0"
 
 end
 
-gem 'devise'
+
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

@@ -20,6 +20,7 @@ RSpec.describe PagesController, :type => :controller do
     
     context "logged in user" do 
       login_user_before_each
+      
       it "should access the secret if signed in" do
         
         get :secret

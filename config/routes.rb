@@ -1,11 +1,20 @@
+require 'sidekiq/web'
 Rails.application.routes.draw do
   devise_for :users
+  
+  Sidekiq::Web.use(Rack::Auth::Basic) do |user, password|
+    [user, password] == [ Rails.application.secrets.secret_pass , Rails.application.secrets.secret_pass ]
+  end
+  
+  mount Sidekiq::Web => '/sidekiq'
 
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   root 'pages#home'
+
 
   get 'secret' => 'pages#secret'
 
