@@ -1,18 +1,17 @@
 development:
-  adapter: mysql2
-  encoding: utf8
-  reconnect: false
-  database: peer_street_development
+  host: localhost
+  adapter: postgresql
+  encoding: unicode
+  database: peer_street_dev
   pool: 5
-  username: root
-  password:
+  username: postgres
+  password: 
 
 test:
-  adapter: mysql2
-  encoding: utf8
-  reconnect: false
+  host: localhost
+  adapter: postgresql
+  encoding: unicode
   database: peer_street_test
   pool: 5
-  username: root
-  password:
-
+  username: postgres
+  password: 
