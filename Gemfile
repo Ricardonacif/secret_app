@@ -16,6 +16,8 @@ gem 'coffee-rails', '~> 4.0.0'
 
 gem 'haml'
 
+gem 'rails_12factor', group: :production
+
 gem 'sidekiq'
 gem 'sinatra', '>= 1.3.0', :require => nil
 gem 'devise', '~> 3.2.4'
@@ -26,6 +28,8 @@ group :development, :test do
   gem "factory_girl_rails", "~> 4.0"
 
 end
+
+
 
 
 
@@ -52,4 +56,6 @@ gem 'spring',        group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+ruby "2.1.2"
 
