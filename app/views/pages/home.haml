@@ -1,5 +1,15 @@
 .jumbotron
-  %h1 Secret App
-  %p Example application that uses the BlockScore API to validate the user's identity in order to reveal a secret.
+  %h1 Welcome to the Secret Page!
   %p
+    Example application that uses the BlockScore API to validate the user's identity in order to reveal a secret. In order to access it, you'll have to:
+    %ul
+      %li
+        %p Sign Up
+      %li 
+        %p Verify your email
+      %li 
+        %p Complete Identity Verification with Blockscore
+      %li 
+        %p Complete knowledge based authentication (Blockscore's questions)
+      
     = link_to 'View The Secret »', secret_path, class: 'btn btn-lg btn-primary', role: 'button'

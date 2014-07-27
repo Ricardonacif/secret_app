@@ -35,7 +35,7 @@
                 = f.text_field :date_of_birth, class: "form-control", placeholder: 'YYYY/MM/DD', 'data-bv-notempty' => "true", "data-bv-date" => "true", "data-bv-date-format" => "YYYY/MM/DD", "data-bv-date-message" => "The format of the date should be YYYY/MM/DD "   
               .form-group
                 = f.label 'Social Security Number'
-                = f.text_field :ssn, class: "form-control", 'data-bv-notempty' => "true"  
+                = f.text_field :ssn, class: "form-control", placeholder: '0000 for valid, 0001 for invalid', 'data-bv-notempty' => "true"
               %a.btn.btn-primary.pull-right.go_to_step_2#next_step Next step
         #step2.tab-pane.fade
           .panel.panel-default
@@ -59,7 +59,7 @@
                 = f.text_field :postal_code, class: "form-control" , 'data-bv-notempty' => "true"
               .form-group
                 = f.label :country_code
-                = f.select :country_code, options_for_select([['United States', 'US'], ['Brazil', 'BR']]), {},  { class: "form-control" , 'data-bv-notempty' => "true"}
+                = f.select :country_code, options_for_select([['United States (BlockScore only supports US users on Question Sets so far)', 'US']]), {},  { class: "form-control" , 'data-bv-notempty' => "true"}
               = f.submit "Register", class: "btn btn-success pull-right", data: { disable_with: "Please wait..." }
               
         #step3.tab-pane.fade

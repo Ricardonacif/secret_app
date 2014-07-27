@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   devise  :confirmable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :async
 
-  validates_presence_of :date_of_birth, :password, :email, :ssn, :first_name, :last_name, :street_1,
+  validates_presence_of :date_of_birth, :ssn, :first_name, :last_name, :street_1,
      :city, :state, :postal_code, :country_code
 
   validate :check_if_valid_at_blockscore
