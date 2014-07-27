@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     [user, password] == [ Rails.application.secrets.secret_pass , Rails.application.secrets.secret_pass ]
   end
   
+  resources :questions, only: [:index]
+  resources :answers, only: [:create]
   mount Sidekiq::Web => '/sidekiq'
   
 end

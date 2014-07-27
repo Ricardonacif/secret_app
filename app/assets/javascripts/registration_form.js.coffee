@@ -1,8 +1,6 @@
 window.registration_form =
   events: ->
 
-    $(".registration_form input").keypress registration_form.press_enter(event)
-
     $(".registration_form").bind "ajax:success", registration_form.form_ajax_submit
     $('.go_to_step_2').click registration_form.nextStep
     
@@ -29,8 +27,6 @@ window.registration_form =
       $form = $(e.target)
       e.preventDefault()  if $form.data("remote") and $.rails isnt `undefined`
 
-  # a.isValidContainer('#step1')
-
   form_ajax_submit: (e, data, status, xhr) ->
     if data.success
       $('#step_3_tab').attr('data-toggle', 'tab')
@@ -46,14 +42,6 @@ window.registration_form =
 
   current_tab: ->
     $('.nav.nav-wizard').children('li.active').children().first().attr('id')
-
-  press_enter: (e) ->
-    if event.keyCode is 13
-      e.preventDefault()
-      if current_tab() == 'step_1_tab'
-        registration_form.nextstep()
-      else
-        $('.registration_form').submit()
 
 
   nextStep: ->

@@ -2,17 +2,7 @@
 = bootstrap_devise_error_messages!
 = form_for(resource, :as => resource_name, remote: true, :format => :json, :url => registration_path(resource_name), html: { role: "form", class: 'registration_form' }) do |f|
   .bs-example
-    %ul.nav.nav-wizard
-      %li.active
-        %a#step_1_tab{"data-toggle" => "tab", :href => "#step1"} Step 1 - Basic Information
-      %li
-        %a#step_2_tab{ :href => "#step2"} Step 2 - Address
-      %li
-        %a#step_3_tab{ :href => "#step3"} Step 3 - Email Confirmation
-      %li
-        %a Step 4 - Security Questions
-      %li
-        %a Done. Get the Secret
+    = render partial: 'shared/wizard_header', locals: {step: 1}
     %hr
       #myTabContent.tab-content
         #step1.tab-pane.fade.active.in

@@ -1,0 +1,19 @@
+%ul.nav.nav-wizard
+  -if step == 1
+    %li.active
+      %a#step_1_tab{"data-toggle" => "tab", :href => "#step1"} Step 1 - Basic Information
+  -else
+    %li
+      %a#step_1_tab Step 1 - Basic Information
+  %li
+    %a#step_2_tab{ :href => "#step2"} Step 2 - Address
+  %li
+    %a#step_3_tab{ :href => "#step3"} Step 3 - Email Confirmation
+  -if step == 4
+    %li.active
+      %a Step 4 - Security Questions
+  -else
+    %li
+      %a Step 4 - Security Questions
+  %li
+    %a Done. Get the Secret

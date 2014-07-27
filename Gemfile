@@ -35,12 +35,13 @@ gem 'devise-async'
 
 group :development do
   gem "better_errors"
-  gem 'pry'
+  
   gem 'guard-livereload', require: false
   gem 'guard-rspec', require: false
 end
 
 group :development, :test do
+  gem 'pry'
   gem 'rspec-rails', '~> 3.0.0'
   gem "factory_girl_rails", "~> 4.0"
   gem 'dotenv-rails'
