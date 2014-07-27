@@ -32,7 +32,7 @@
                 = f.password_field :password_confirmation, class: "form-control", 'data-bv-notempty' => "true","data-bv-identical-field" => "#user_password", "data-bv-identical-message" => "The password and its confirmation are not the same"
               .form-group
                 = f.label :date_of_birth
-                = f.text_field :date_of_birth, class: "form-control", placeholder: 'YYYY/MM/DD', 'data-bv-notempty' => "true", "data-bv-date" => "true", "data-bv-date-format" => "YYYY/MM/DD", "data-bv-date-message" => "The format of the date should be YYYY/MM/DD ", "data-date-format" => "YYYY/MM/DD"
+                = f.text_field :date_of_birth, class: "form-control", placeholder: 'YYYY/MM/DD', "data-date-format" => "YYYY/MM/DD"
               .form-group
                 = f.label 'Social Security Number'
                 = f.text_field :ssn, class: "form-control", placeholder: '0000 for valid, 0001 for invalid', 'data-bv-notempty' => "true"
