@@ -3,6 +3,7 @@ window.registration_form =
 
     $(".registration_form input").keypress registration_form.press_enter(event)
 
+    $(".registration_form").bind "ajax:success", registration_form.form_ajax_submit
     $('.go_to_step_2').click registration_form.nextStep
     
     $(".registration_form").bootstrapValidator(
@@ -27,14 +28,21 @@ window.registration_form =
       
       $form = $(e.target)
       e.preventDefault()  if $form.data("remote") and $.rails isnt `undefined`
-      alert('foi')
 
   # a.isValidContainer('#step1')
 
-$("#new_article").on("ajax:success", (e, data, status, xhr) ->
-    $("#new_article").append xhr.responseText
-  ).on "ajax:error", (e, xhr, status, error) ->
-    $("#new_article").append "<p>ERROR</p>"
+  form_ajax_submit: (e, data, status, xhr) ->
+    if data.success
+      $('#step_3_tab').attr('data-toggle', 'tab')
+      $('#step_3_tab').click()
+      $('#step_2_tab').attr('data-toggle', '')
+      $('#step_1_tab').attr('data-toggle', '')
+    else
+      error_messages = data.errors.join('<br>')
+      window.error_messages = error_messages 
+      window.data = data
+      registration_form.display_error_messages(error_messages)
+
 
   current_tab: ->
     $('.nav.nav-wizard').children('li.active').children().first().attr('id')
@@ -55,7 +63,11 @@ $("#new_article").on("ajax:success", (e, data, status, xhr) ->
       $('#step_2_tab').attr('data-toggle', 'tab')
       $('#step_2_tab').click()
     else
-      alert "Please, fill the form correctly before continuing."
+      registration_form.display_error_messages "Please, fill the form correctly before continuing."
+
+  display_error_messages: (messages) ->
+    $('h2').after("<div class='alert alert-danger alert-dismissable'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>#{messages}</div>")
+
 
   start: ->
     registration_form.events()

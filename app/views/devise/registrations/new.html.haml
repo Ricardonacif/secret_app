@@ -1,6 +1,6 @@
 %h2 Registration Process
 = bootstrap_devise_error_messages!
-= form_for(resource, :as => resource_name, remote: true, :url => registration_path(resource_name), html: { role: "form", class: 'registration_form' }) do |f|
+= form_for(resource, :as => resource_name, remote: true, :format => :json, :url => registration_path(resource_name), html: { role: "form", class: 'registration_form' }) do |f|
   .bs-example
     %ul.nav.nav-wizard
       %li.active
@@ -70,7 +70,8 @@
               .form-group
                 = f.label :country_code
                 = f.select :country_code, options_for_select([['United States', 'US'], ['Brazil', 'BR']]), {},  { class: "form-control" , 'data-bv-notempty' => "true"}
-              = f.submit "Register", class: "btn btn-success pull-right"
+              = f.submit "Register", class: "btn btn-success pull-right", data: { disable_with: "Please wait..." }
+              
         #step3.tab-pane.fade
           %h3 Email Confirmation
           .panel.panel-success

@@ -11,6 +11,12 @@ class User < ActiveRecord::Base
   validate :check_if_valid_at_blockscore
 
 
+  before_save :set_blockscore_id
+
+  def set_blockscore_id
+    self.blockscore_id = blockscore_client.new_user_identification
+  end
+
   def check_if_valid_at_blockscore
     return unless errors.blank?
     errors.add(:invalid_user, "personal information is invalid according to BlockScore") unless blockscore_client.new_user_valid?

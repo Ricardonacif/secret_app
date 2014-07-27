@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root 'pages#home'
   get 'secret' => 'pages#secret'
   
-  devise_for :users
+  devise_for :users, :controllers => {registrations: 'registrations'}
   
   Sidekiq::Web.use(Rack::Auth::Basic) do |user, password|
     [user, password] == [ Rails.application.secrets.secret_pass , Rails.application.secrets.secret_pass ]

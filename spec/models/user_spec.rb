@@ -32,4 +32,13 @@ RSpec.describe User, :type => :model do
     end
 
   end
+  describe "BlockScore API ID" do 
+    subject { FactoryGirl.build(:user) }
+    it "should set the BlockScore ID when saving" do 
+      expect(subject.blockscore_id).to be_nil
+      subject.save
+      expect(subject.blockscore_id).to be_present
+    end
+
+  end
 end
