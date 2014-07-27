@@ -1,9 +1,31 @@
 !!!
 %html
   %head
-    %title PeerStreetTest
+    %title Secret App
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
-    = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
-  %body
-    = yield
+  %body{"cz-shortcut-listen" => "true"}
+    .container
+      / Static navbar
+      .navbar.navbar-default{role: "navigation"}
+        .container-fluid
+          .navbar-header
+            %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", type: "button"}
+              %span.sr-only Toggle navigation
+              %span.icon-bar
+              %span.icon-bar
+              %span.icon-bar
+            %a.navbar-brand{href: "#"} Secret App
+          .navbar-collapse.collapse
+            %ul.nav.navbar-nav
+              %li= link_to "Home", root_path
+              %li= link_to "Secret", secret_path
+            %ul.nav.navbar-nav.navbar-right
+              %li= link_to "Sign in", new_user_session_path
+              %li= link_to "Register", new_user_registration_path
+          / /.nav-collapse
+        / /.container-fluid
+      / Main component for a primary marketing message or call to action
+      = yield
+
+  = javascript_include_tag 'application', 'data-turbolinks-track' => true

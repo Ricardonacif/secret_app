@@ -14,6 +14,11 @@ gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 
+gem 'bootstrap-sass', '~> 3.2.0'
+gem 'autoprefixer-rails'
+gem 'devise-bootstrap-views'
+
+
 gem 'haml'
 
 gem 'rails_12factor', group: :production
@@ -23,10 +28,17 @@ gem 'sinatra', '>= 1.3.0', :require => nil
 gem 'devise', '~> 3.2.4'
 gem 'devise-async'
 
+
+group :development do
+  gem "better_errors"
+  gem 'pry'
+  gem 'guard-livereload', require: false
+  gem 'guard-rspec', require: false
+end
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
   gem "factory_girl_rails", "~> 4.0"
-
 end
 
 
