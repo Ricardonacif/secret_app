@@ -27,6 +27,8 @@ window.registration_form =
       $form = $(e.target)
       e.preventDefault()  if $form.data("remote") and $.rails isnt `undefined`
 
+    $('#user_date_of_birth').datetimepicker({pickTime: false})
+
   form_ajax_submit: (e, data, status, xhr) ->
     if data.success
       $('#step_3_tab').attr('data-toggle', 'tab')

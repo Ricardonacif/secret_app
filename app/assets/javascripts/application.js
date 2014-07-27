@@ -15,4 +15,6 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require bootstrapValidator.min
+//= require moment
+//= require bootstrap-datetimepicker
 //= require_tree .
