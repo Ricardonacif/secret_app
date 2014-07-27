@@ -10,8 +10,15 @@ class User < ActiveRecord::Base
 
   validate :check_if_valid_at_blockscore
 
-
   before_save :set_blockscore_id
+
+  def get_questions_set
+    blockscore_client.retrieve_questions
+  end
+
+  def get_score_on_question_set_answers(answer)
+    blockscore_client.get_answers_score(answer)
+  end
 
   def set_blockscore_id
     self.blockscore_id = blockscore_client.new_user_identification
