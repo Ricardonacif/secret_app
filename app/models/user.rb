@@ -6,4 +6,10 @@ class User < ActiveRecord::Base
 
   validates_presence_of :date_of_birth, :password, :email, :ssn, :first_name, :last_name, :street_1,
      :city, :state, :postal_code, :country_code
+
+  
+
+  
+  protected
+
 end
