@@ -5,11 +5,11 @@
   .tab-pane.fade.active.in
     .panel.panel-default
       .panel-heading
-        %h4 Answer the security questions bellow
+        %h3 Answer the security questions bellow
       .panel-body
         %p 
           Tip: the answers might be at:
-          =link_to "http://docs.blockscore.com/v3.0/curl/#testing", "http://docs.blockscore.com/v3.0/curl/#testing"
+          =link_to "http://docs.blockscore.com/v3.0/curl/#testing", "http://docs.blockscore.com/v3.0/curl/#testing", target: 'blank'
         .form-group
           = form_tag(answers_path, method: :post) do
             - @questions.each do |question_hash|
@@ -17,7 +17,7 @@
               -question_hash['answers'].each do |answer|
                 .radio
                   %label
-                    =radio_button_tag question_hash['id'], answer['id'], answer['answer']
+                    =radio_button_tag "answers[#{question_hash['id']}]", answer['id'], answer['answer']
                     =label_tag(question_hash['id'],  answer['answer'] )
             =submit_tag 'Show me the Secret!', class: 'btn btn-success pull-right btn-xl'
               
