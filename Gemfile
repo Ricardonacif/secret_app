@@ -18,7 +18,6 @@ gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
 gem 'devise-bootstrap-views'
 gem 'bootstrap-validator-rails'
-gem 'carmen-rails', '~> 1.0.0'
 gem 'blockscore', '~> 2.1.1'
 
 
