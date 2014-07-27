@@ -21,12 +21,19 @@
             %ul.nav.navbar-nav
               %li= link_to "Home", root_path
               %li= link_to "Secret", secret_path
-            %ul.nav.navbar-nav.navbar-right
-              %li= link_to "Sign in", new_user_session_path
-              %li= link_to "Register", new_user_registration_path
+            - if current_user
+              %ul.nav.navbar-nav.navbar-right
+                %li Welcome, #{current_user.name}
+            - else
+              %ul.nav.navbar-nav.navbar-right
+                %li= link_to "Sign in", new_user_session_path
+                %li= link_to "Register", new_user_registration_path
           / /.nav-collapse
         / /.container-fluid
       / Main component for a primary marketing message or call to action
+      - flash.each do |key, value|
+        %div{:class => flash_class(key)}
+          = value
       = yield
 
   

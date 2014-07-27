@@ -1,6 +1,6 @@
 %h2 Registration Process
 = bootstrap_devise_error_messages!
-= form_for(resource, :as => resource_name, :url => registration_path(resource_name), html: { role: "form", class: 'registration_form' }) do |f|
+= form_for(resource, :as => resource_name, remote: true, :url => registration_path(resource_name), html: { role: "form", class: 'registration_form' }) do |f|
   .bs-example
     %ul.nav.nav-wizard
       %li.active
@@ -8,11 +8,11 @@
       %li
         %a#step_2_tab{ :href => "#step2"} Step 2 - Address
       %li
-        %a Step 3 - Email Confirmed
+        %a#step_3_tab{ :href => "#step3"} Step 3 - Email Confirmation
       %li
         %a Step 4 - Security Questions
       %li
-        %a Done. Ready for the Secret?
+        %a Done. Get the Secret
     %hr
       #myTabContent.tab-content
         #step1.tab-pane.fade.active.in
@@ -69,9 +69,15 @@
                 = f.text_field :postal_code, class: "form-control" , 'data-bv-notempty' => "true"
               .form-group
                 = f.label :country_code
-                = f.text_field :country_code, class: "form-control" , 'data-bv-notempty' => "true"
-
+                = f.select :country_code, options_for_select([['United States', 'US'], ['Brazil', 'BR']]), {},  { class: "form-control" , 'data-bv-notempty' => "true"}
               = f.submit "Register", class: "btn btn-success pull-right"
+        #step3.tab-pane.fade
+          %h3 Email Confirmation
+          .panel.panel-success
+            .panel-heading
+              %h3.panel-title You've signed up!
+            .panel-body
+              Nice! Now check your email and click on the confirmation link.
 :javascript
   $(function(){
     registration_form.start();

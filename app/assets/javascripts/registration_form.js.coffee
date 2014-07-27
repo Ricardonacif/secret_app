@@ -24,11 +24,17 @@ window.registration_form =
         
     ).on "success.form.bv", (e) ->
       
-      # Called when the form is valid
+      
       $form = $(e.target)
       e.preventDefault()  if $form.data("remote") and $.rails isnt `undefined`
+      alert('foi')
 
   # a.isValidContainer('#step1')
+
+$("#new_article").on("ajax:success", (e, data, status, xhr) ->
+    $("#new_article").append xhr.responseText
+  ).on "ajax:error", (e, xhr, status, error) ->
+    $("#new_article").append "<p>ERROR</p>"
 
   current_tab: ->
     $('.nav.nav-wizard').children('li.active').children().first().attr('id')
