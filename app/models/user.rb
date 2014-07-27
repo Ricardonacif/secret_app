@@ -1,3 +1,4 @@
+require 'block_score_api' #autoload lib's folder is not recommended
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :lockable, :timeoutable and :omniauthable
@@ -12,7 +13,7 @@ class User < ActiveRecord::Base
 
   def check_if_valid_at_blockscore
     return unless errors.blank?
-    errors.add(:invalid_user, "personal information is invalid") unless blockscore_client.new_user_valid?
+    errors.add(:invalid_user, "personal information is invalid according to BlockScore") unless blockscore_client.new_user_valid?
   end
 
 
