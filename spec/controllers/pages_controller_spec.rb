@@ -29,7 +29,7 @@ RSpec.describe PagesController, :type => :controller do
 
       it "should access the secret if the user already answered the security questions" do
         user = User.last
-        user.update_attribute(:blockscore_question_vefiried, true)
+        user.update_attribute(:blockscore_question_verified, true)
         get :secret
         expect(response).to render_template('secret')
       end

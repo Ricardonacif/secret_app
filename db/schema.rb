@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20140727190502) do
     t.string   "country_code"
     t.string   "middle_name"
     t.string   "blockscore_id"
-    t.boolean  "blockscore_question_vefiried",    default: false
+    t.boolean  "blockscore_question_verified",    default: false
     t.string   "blockscore_last_question_set_id"
   end
 

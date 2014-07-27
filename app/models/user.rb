@@ -16,6 +16,10 @@ class User < ActiveRecord::Base
     blockscore_client.retrieve_questions
   end
 
+  def completed_verification?
+    confirmed? && blockscore_question_verified
+  end
+
   def get_score_on_question_set_answers(answer)
     blockscore_client.get_answers_score(answer)
   end
