@@ -1,4 +1,4 @@
-require 'block_score_api' #autoload lib's folder is not recommended
+require 'block_score_api' #autoload libs files is not recommended
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :lockable, :timeoutable and :omniauthable

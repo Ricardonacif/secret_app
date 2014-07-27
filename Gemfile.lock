@@ -38,7 +38,15 @@ GEM
       httparty (~> 0.11.0)
     bootstrap-sass (3.2.0.0)
       sass (~> 3.2)
+    bootstrap-validator-rails (0.5.0.2)
+      jquery-rails (>= 3.0)
+      railties (>= 3.0)
     builder (3.2.2)
+    carmen (1.0.1)
+      unicode_utils (~> 1.4.0)
+    carmen-rails (1.0.1)
+      carmen (~> 1.0.0)
+      rails
     celluloid (0.15.2)
       timers (~> 1.1.0)
     coderay (1.1.0)
@@ -224,6 +232,7 @@ GEM
     uglifier (2.5.3)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    unicode_utils (1.4.0)
     warden (1.2.3)
       rack (>= 1.0)
 
@@ -235,6 +244,8 @@ DEPENDENCIES
   better_errors
   blockscore (~> 2.1.1)
   bootstrap-sass (~> 3.2.0)
+  bootstrap-validator-rails
+  carmen-rails (~> 1.0.0)
   coffee-rails (~> 4.0.0)
   devise (~> 3.2.4)
   devise-async

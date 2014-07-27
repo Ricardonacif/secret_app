@@ -1,18 +1,78 @@
+%h2 Registration Process
 = bootstrap_devise_error_messages!
-.panel.panel-default
-  .panel-heading
-    %h4= t('.sign_up', :default => "Sign up")
-  .panel-body
-    = form_for(resource, :as => resource_name, :url => registration_path(resource_name), html: { role: "form" }) do |f|
-      .form-group
-        = f.label :email
-        = f.email_field :email, class: "form-control"
-      .form-group
-        = f.label :password
-        %br/
-        = f.password_field :password, class: "form-control"
-      .form-group
-        = f.label :password_confirmation
-        = f.password_field :password_confirmation, class: "form-control"
-      = f.submit t('.sign_up', :default => "Sign up"), class: "btn btn-primary"
-= render "devise/shared/links"
+= form_for(resource, :as => resource_name, :url => registration_path(resource_name), html: { role: "form", class: 'registration_form' }) do |f|
+  .bs-example
+    %ul.nav.nav-wizard
+      %li.active
+        %a{"data-toggle" => "tab", :href => "#step1", class: 'step_1_tab'} Step 1 - Basic Information
+      %li
+        %a{ :href => "#step2",  class: 'step_2_tab'} Step 2 - Address
+      %li
+        %a Step 3 - Email Confirmed
+      %li
+        %a Step 4 - Security Questions
+      %li
+        %a Done. Ready for the Secret?
+    %hr
+      #myTabContent.tab-content
+        #step1.tab-pane.fade.active.in
+          .panel.panel-default
+            .panel-heading
+              %h4 Basic Information
+            .panel-body
+              .form-group
+                = f.label :first_name
+                = f.text_field :first_name, class: "form-control" , 'data-bv-notempty' => "true"
+
+              .form-group
+                = f.label :middle_name
+                = f.text_field :middle_name, class: "form-control"
+              .form-group
+                = f.label :last_name
+                = f.text_field :last_name, class: "form-control", 'data-bv-notempty' => "true"  
+              .form-group
+                = f.label :email
+                = f.email_field :email, class: "form-control", 'data-bv-notempty' => "true", "data-bv-emailaddress" => "true", "data-bv-emailaddress-message" => "The email address is not a valid"
+
+              .form-group
+                = f.label :password
+                = f.password_field :password, class: "form-control", 'data-bv-notempty' => "true","data-bv-stringlength" => "true", "data-bv-stringlength-min" => "8", "data-bv-stringlength-message" => "The password must have at least 8 characters", "data-bv-identical-field" => "#user_password_confirmation", "data-bv-identical-message" => "The password and its confirmation are not the same"
+              .form-group
+                = f.label :password_confirmation
+                = f.password_field :password_confirmation, class: "form-control", 'data-bv-notempty' => "true","data-bv-identical-field" => "#user_password", "data-bv-identical-message" => "The password and its confirmation are not the same"
+              .form-group
+                = f.label :date_of_birth
+                = f.text_field :date_of_birth, class: "form-control", placeholder: 'YYYY/MM/DD', 'data-bv-notempty' => "true", "data-bv-date" => "true", "data-bv-date-format" => "YYYY/MM/DD", "data-bv-date-message" => "The format of the date should be YYYY/MM/DD "   
+              .form-group
+                = f.label 'Social Security Number'
+                = f.text_field :ssn, class: "form-control", 'data-bv-notempty' => "true"  
+              %a.btn.btn-primary.pull-right.go_to_step_2#next_step Next step
+        #step2.tab-pane.fade
+          .panel.panel-default
+            .panel-heading
+              %h4 Address
+            .panel-body
+              .form-group
+                = f.label :street_1
+                = f.text_field :street_1, class: "form-control" , 'data-bv-notempty' => "true"
+              .form-group
+                = f.label :street_2
+                = f.text_field :street_2, class: "form-control" , 'data-bv-notempty' => "true"
+              .form-group
+                = f.label :city
+                = f.text_field :city, class: "form-control" , 'data-bv-notempty' => "true"
+              .form-group
+                = f.label :state
+                = f.text_field :state, class: "form-control" , 'data-bv-notempty' => "true"
+              .form-group
+                = f.label :postal_code
+                = f.text_field :postal_code, class: "form-control" , 'data-bv-notempty' => "true"
+              .form-group
+                = f.label :country_code
+                = f.country_select :country_code, class: "form-control" , 'data-bv-notempty' => "true"
+
+              = f.submit "Register", class: "btn btn-success pull-right"
+:javascript
+  $(function(){
+    registration_form.start();
+  });
