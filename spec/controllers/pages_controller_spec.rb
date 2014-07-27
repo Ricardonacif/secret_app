@@ -21,10 +21,17 @@ RSpec.describe PagesController, :type => :controller do
     context "when logged in" do 
       login_user_before_each
       
-      it "should access the secret if signed in" do
+      it "should not access the secret if the user didn't answered to the security questions" do
         
         get :secret
-        expect(response).to render_template("secret")
+        expect(response).to redirect_to(questions_path)
+      end
+
+      it "should access the secret if the user already answered the security questions" do
+        user = User.last
+        user.update_attribute(:blockscore_question_vefiried, true)
+        get :secret
+        expect(response).to render_template('secret')
       end
     end
 
