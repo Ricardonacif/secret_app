@@ -1,5 +1,5 @@
 # Secret App - BlockScore API Demo
-[![Code Climate](https://codeclimate.com/github/Ricardonacif/secret_app.png)](https://codeclimate.com/github/Ricardonacif/secret_app) 
+[![Code Climate](https://codeclimate.com/github/Ricardonacif/secret_app.png)](https://codeclimate.com/github/Ricardonacif/secret_app) [![Build Status](https://travis-ci.org/Ricardonacif/secret_app.svg?branch=master)](https://travis-ci.org/Ricardonacif/secret_app)
 
 Ruby on Rails Application that uses [BlockScore API](https://blockscore.com) to validate the user’s identity. A user must be able to sign up, verify his email and verify his identity answering to questions before being granted access to the secret.
 
