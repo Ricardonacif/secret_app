@@ -1,31 +1,24 @@
-Identity Verification
-=========
+# Secret App - BlockScore API Demo
 
-Using [BlockScore API](https://blockscore.com) to validate the user’s identity. A user must be able to sign up and verify their identity through a number of steps before being granted access to a portion of the site.
 
-Requirements
-----
+Ruby on Rails Application that uses [BlockScore API](https://blockscore.com) to validate the user’s identity. A user must be able to sign up, verify his email and verify his identity answering to questions before being granted access to the secret.
 
-- Use Devise for user registration
-- Create a “success” page that’s only accessible to fully confirmed users
-- A fully confirmed user has:
-  - Registered
-  - Successfully completed identity verification with BlockScore
-  - Successfully completed knowledge based authentication (questions)
-  - Verified email
-- Rspec test suite
+The project is hosted at [this Heroku App](http://secret-app.heroku.com).
+## Main gems/libraries used ##
 
-Notes
-----
+* [Twitter Bootstrap](http://getbootstrap.com/)
+* [Unicorn](http://unicorn.bogomips.org/)
+* [Devise (and Devise_async)](https://github.com/plataformatec/devise)
+* [Rspec](http://rspec.info/)
+* [BlockScore Ruby API](docs.blockscore.com/v3.0/ruby/#api-reference)
+* [HAML](http://haml.info)
+* and many others (check Gemfile)
 
-- Sign up for BlockScore to get a test API key
-- Use SendGrid (free account) to send email
-- Use Twitter bootstrap for the frontend
-- Consider response time to end user
-- Pretend you are writing production code with all the implications
+## Contributing ##
 
-Deliverable
-----
+Any help is encouraged. Here are some ways you can contribute:
 
-- Github source
-- Link to Heroku app
+* by using it
+* by telling people
+* by reporting bugs or suggesting new features on github issue tracker
+* by fixing bugs or implementing features
