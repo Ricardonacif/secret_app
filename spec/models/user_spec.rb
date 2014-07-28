@@ -7,10 +7,12 @@ RSpec.describe User, :type => :model do
     
     [:date_of_birth, :password, :email, :ssn, :first_name, :last_name, :street_1,
      :city, :state, :postal_code, :country_code].each do |attribute|
+
       it "should not be valid without #{attribute}" do 
         subject.send("#{attribute}=", '')
         expect(subject).not_to be_valid
       end
+
     end
 
     #according to the BlockScore API documentation, for testing pourpose,
@@ -32,8 +34,10 @@ RSpec.describe User, :type => :model do
     end
 
   end
-  describe "BlockScore API ID" do 
+  describe "BlockScore API ID" do
+
     subject { FactoryGirl.build(:user) }
+    
     it "should set the BlockScore ID when saving" do 
       expect(subject.blockscore_id).to be_nil
       subject.save

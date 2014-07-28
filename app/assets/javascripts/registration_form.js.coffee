@@ -2,6 +2,7 @@ window.registration_form =
   events: ->
 
     $(".registration_form").bind "ajax:success", registration_form.form_ajax_submit
+
     $('.go_to_step_2').click registration_form.nextStep
     
     $(".registration_form").bootstrapValidator(
@@ -19,11 +20,7 @@ window.registration_form =
               field: 'user[password]'
               message: "The password and its confirm are not the same"
 
-
-        
     ).on "success.form.bv", (e) ->
-      
-      
       $form = $(e.target)
       e.preventDefault()  if $form.data("remote") and $.rails isnt `undefined`
 
@@ -41,13 +38,10 @@ window.registration_form =
       window.data = data
       registration_form.display_error_messages(error_messages)
 
-
   current_tab: ->
     $('.nav.nav-wizard').children('li.active').children().first().attr('id')
 
-
   nextStep: ->
-
     form = $('.registration_form').data('bootstrapValidator')
     if form.isValidContainer('#step1')
       $('#step_2_tab').attr('data-toggle', 'tab')
@@ -57,7 +51,6 @@ window.registration_form =
 
   display_error_messages: (messages) ->
     $('h2').after("<div class='alert alert-danger alert-dismissable'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>#{messages}</div>")
-
 
   start: ->
     registration_form.events()

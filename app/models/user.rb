@@ -7,7 +7,6 @@ class User < ActiveRecord::Base
 
   validates_presence_of :date_of_birth, :ssn, :first_name, :last_name, :street_1,
      :city, :state, :postal_code, :country_code
-
   validate :check_if_valid_at_blockscore
 
   before_save :set_blockscore_id
@@ -32,7 +31,6 @@ class User < ActiveRecord::Base
     return unless errors.blank?
     errors.add(:invalid_user, "personal information is invalid according to BlockScore") unless blockscore_client.new_user_valid?
   end
-
 
   protected
 

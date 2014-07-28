@@ -1,12 +1,15 @@
 require 'rails_helper'
 
 RSpec.describe QuestionsController, :type => :controller do
-  describe "#index" do 
+  describe "#index" do
+
     context "when logged out" do 
+
       it "should redirect to sign in" do
         get :index
         expect(response).to redirect_to(new_user_session_path)
       end
+
     end
     
     context "when logged in" do 
@@ -19,6 +22,5 @@ RSpec.describe QuestionsController, :type => :controller do
         expect(assigns(:questions).size).to be_equal(5)
       end
     end
-
   end
 end

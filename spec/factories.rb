@@ -4,7 +4,7 @@ FactoryGirl.define do
       "person#{n}@example.com"
     end
     password 'StrongPass42'
-    date_of_birth Time.now - 20.years
+    date_of_birth Date.today - 20.years
     ssn "0000"
     first_name "John"
     last_name "Last Name"

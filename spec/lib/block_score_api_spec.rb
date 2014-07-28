@@ -4,7 +4,8 @@ RSpec.describe BlockScoreAPI do
   describe "public methods" do
     subject { BlockScoreAPI.new(FactoryGirl.create(:user)) }
 
-    context "new_user_valid?" do 
+    context "new_user_valid?" do
+
       it "should return true when the user is valid on BlockScore" do
         expect(subject.new_user_valid?).to be_equal(true)
       end
@@ -16,19 +17,24 @@ RSpec.describe BlockScoreAPI do
 
     end
     
-    context "new_user_identification" do 
+    context "new_user_identification" do
+
       it 'should return an identification number' do
         expect(subject.new_user_identification).to be_a(String)
       end
+
     end
 
-    context 'retrieve_questions' do 
+    context 'retrieve_questions' do
+
       it "should retrieve an array of questions" do 
         expect(subject.retrieve_questions).to be_a(Array)
       end
+
     end
     
     context 'get_answers_score' do
+
       it 'should get the score when submiting answers' do 
         subject.retrieve_questions
         answers = [
@@ -41,6 +47,7 @@ RSpec.describe BlockScoreAPI do
 
         expect(subject.get_answers_score(answers)).to be_a(Float)
       end
+      
     end
   end
 end
