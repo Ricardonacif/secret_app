@@ -20,7 +20,7 @@ en:
       confirmation_instructions:
         action: "Confirm my account"
         greeting: "Welcome %{recipient}!"
-        instruction: "You can confirm your account email through the link below:"
+        instruction: "You really wanna see the secret, huh? So please, confirm your account email through the link below:"
         subject: "Confirmation instructions"
       reset_password_instructions:
         action: "Change my password"

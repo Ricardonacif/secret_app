@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def after_sign_in_path_for(resource)
-    secret_path
+    current_user.completed_verification? ? secret_path : questions_path
   end
 
   protected
