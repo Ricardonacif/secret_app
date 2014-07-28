@@ -13,7 +13,9 @@ class PagesController < ApplicationController
   protected
 
   def check_if_completed_verification
-    flash[:error] =  "Hey! You can't access the secret yet! Complete the verification proccess bellow."
-    redirect_to questions_path unless current_user.completed_verification?
+    unless current_user.completed_verification?
+      flash[:error] =  "Hey! You can't access the secret yet! Complete the verification proccess bellow."
+      redirect_to questions_path
+    end
   end
 end

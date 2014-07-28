@@ -2,7 +2,7 @@ development:
   host: localhost
   adapter: postgresql
   encoding: unicode
-  database: peer_street_dev
+  database: secret_app_dev
   pool: 5
   username: postgres
   password: 
@@ -11,7 +11,7 @@ test:
   host: localhost
   adapter: postgresql
   encoding: unicode
-  database: peer_street_test
+  database: secret_app_test
   pool: 5
   username: postgres
   password: 
