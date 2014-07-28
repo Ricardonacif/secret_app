@@ -6,7 +6,6 @@ before_script:
 script:
 - RAILS_ENV=test bundle exec rake db:migrate --trace
 - bundle exec rspec
-bundler_args: "--binstubs=./bundler_stubs"
 env:
   global:
     secure: HNfDjqbt8hiANbl7C0DdsQhbf9w+jb9KxRi5odQbqhv7tCRsrVbRRQWQ21Tb/MrJfq8dJhSWdNL1PmwaxmhNfcf+fySuLPTfD754x3HW2bUowSzNxnG2LChfOeq1Xg9EcvUWmOAOrjIY5nEfWicuzMfPot1TocHnBHoqCOdy/fo=
