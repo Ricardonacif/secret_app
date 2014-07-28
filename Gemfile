@@ -36,7 +36,7 @@ group :development do
 end
 
 group :development, :test do
-  gem 'database_cleaner', git: 'git@github.com:bmabey/database_cleaner.git'
+  gem 'database_cleaner'
   gem 'pry'
   gem 'rspec-rails', '~> 3.0.0'
   gem "factory_girl_rails", "~> 4.0"
